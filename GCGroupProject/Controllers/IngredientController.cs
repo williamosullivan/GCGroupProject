@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GCGroupProject.DAL;
 using GCGroupProject.Models;
+using PagedList;
 
 namespace GCGroupProject.Controllers
 {
@@ -16,9 +17,42 @@ namespace GCGroupProject.Controllers
         private RecipeContext db = new RecipeContext();
 
         // GET: Ingredient
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Ingredients.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var ingredients = from s in db.Ingredients
+                              select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ingredients = from s in db.Ingredients
+                              where s.IngredientName.ToUpper() == (searchString).ToUpper()
+                              select s;
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    ingredients = ingredients.OrderByDescending(s => s.IngredientName);
+                    break;
+                default:
+                    ingredients = ingredients.OrderBy(s => s.IngredientName);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(ingredients.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Ingredient/Details/5

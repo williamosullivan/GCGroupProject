@@ -36,7 +36,9 @@ namespace GCGroupProject.Controllers
                           select r;
             if (!String.IsNullOrEmpty(searchString))
             {
-                recipes = recipes.Where(r => r.RecipeTitle.ToUpper().Contains(searchString.ToUpper()));
+                recipes = from r in db.Recipes
+                          where r.RecipeTitle.ToUpper() == (searchString).ToUpper()
+                          select r;
             }
             switch (sortOrder)
             {
