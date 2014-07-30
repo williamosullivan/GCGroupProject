@@ -17,22 +17,26 @@ namespace GCGroupProject.Controllers
         private RecipeContext db = new RecipeContext();
 
         // GET: Recipe
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.MealTypeSortParm = String.IsNullOrEmpty(sortOrder) ? "meal_desc" : "";
             var recipes = from r in db.Recipes
                           select r;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                recipes = recipes.Where(r => r.RecipeTitle.ToUpper().Contains(searchString.ToUpper()));
+            }
             switch (sortOrder)
             {
                 case "name_desc":
-                    recipes = recipes.OrderByDescending(s => s.RecipeTitle);
+                    recipes = recipes.OrderByDescending(r => r.RecipeTitle);
                     break;
                 case "meal_desc":
-                    recipes = recipes.OrderByDescending(s => s.MealType);
+                    recipes = recipes.OrderByDescending(r => r.MealType);
                     break;
                 default:
-                    recipes = recipes.OrderBy(s => s.RecipeTitle);
+                    recipes = recipes.OrderBy(r => r.RecipeTitle);
                     break;
             }
             return View(recipes.ToList());
