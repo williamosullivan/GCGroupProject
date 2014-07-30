@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GCGroupProject.Models.Recipe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Steps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CookTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Servings)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Steps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrepTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CookTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Servings)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecipeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecipeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecipeID })
+        </td>
+    </tr>
+}
+
+</table>
