@@ -30,6 +30,13 @@ namespace GCGroupProject.DAL
             };
             recipeIngredients.ForEach(s => context.RecipeIngredients.Add(s));
             context.SaveChanges();
+
+            var mealTypes = new List<MealType>
+            {
+                new MealType{MealTypeID = 1, MealTypeName = "Breakfast"}
+            };
+            mealTypes.ForEach(s => context.MealTypes.Add(s));
+            context.SaveChanges();
         }
     }
 }
