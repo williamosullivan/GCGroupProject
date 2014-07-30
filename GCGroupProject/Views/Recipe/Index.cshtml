@@ -1,19 +1,21 @@
-﻿@model IEnumerable<GCGroupProject.Models.Recipe>
+﻿@model PagedList.IPagedList<GCGroupProject.Models.Recipe>
+@using PagedList.Mvc;
+<link href="`/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Recipes";
 }
 
-<h2>Index</h2>
+<h2>Recipes</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
 {
     <p>
-        Find Recipe by name: @Html.TextBox("SearchString")
+        Find Recipe by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search" />
     </p>
 }
@@ -23,16 +25,16 @@
             @Html.ActionLink("Recipe Title", "Index", new { sortOrder = ViewBag.NameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Steps)
+            Steps
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PrepTime)
+            Preparation Time
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CookTime)
+            Cook Time
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Servings)
+            Servings
         </th>
         <th>
             @Html.ActionLink("Meal Type", "Index", new { sortOrder = ViewBag.MealTypeSortParm })
@@ -69,3 +71,6 @@
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

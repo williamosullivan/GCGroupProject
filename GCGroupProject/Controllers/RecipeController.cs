@@ -17,10 +17,21 @@ namespace GCGroupProject.Controllers
         private RecipeContext db = new RecipeContext();
 
         // GET: Recipe
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.MealTypeSortParm = String.IsNullOrEmpty(sortOrder) ? "meal_desc" : "";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var recipes = from r in db.Recipes
                           select r;
             if (!String.IsNullOrEmpty(searchString))
@@ -39,7 +50,9 @@ namespace GCGroupProject.Controllers
                     recipes = recipes.OrderBy(r => r.RecipeTitle);
                     break;
             }
-            return View(recipes.ToList());
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(recipes.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Recipe/Details/5
