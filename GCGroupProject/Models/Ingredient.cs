@@ -10,7 +10,7 @@ namespace GCGroupProject.Models
     public class Ingredient
     {
         [Key]
-        public int IngedientID { get; set; }
+        public int IngredientID { get; set; }
         public string IngredientName { get; set; }
 
         public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }

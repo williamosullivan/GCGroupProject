@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GCGroupProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,8 @@ namespace GCGroupProject.viewModels
         public int PrepTime { get; set; }
         public string Steps { get; set; }
         public int CookTime { get; set; }
-        public ICollection<string> IngredientNames { get; set; }
+        public int Servings { get; set; }
+        public string MealType { get; set; }
+        public ICollection<Ingredient> IngredientNames { get; set; }
     }
 }

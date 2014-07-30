@@ -19,7 +19,7 @@ namespace GCGroupProject.DAL
 
             var ingredients = new List<Ingredient>
             {
-                new Ingredient{IngedientID = 1, IngredientName = "Salt"}
+                new Ingredient{IngredientID = 1, IngredientName = "Salt"}
             };
             ingredients.ForEach(s => context.Ingredients.Add(s));
             context.SaveChanges();

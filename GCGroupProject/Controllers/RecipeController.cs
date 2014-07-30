@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using GCGroupProject.DAL;
 using GCGroupProject.Models;
 using PagedList;
+using GCGroupProject.viewModels;
 
 namespace GCGroupProject.Controllers
 {
@@ -65,11 +66,26 @@ namespace GCGroupProject.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Recipe recipe = db.Recipes.Find(id);
+            RecipeIngredientDetailView recipeDetails = new RecipeIngredientDetailView();
+            recipeDetails.RecipeID = recipe.RecipeID;
+            recipeDetails.MealType = recipe.MealType;
+            recipeDetails.Steps = recipe.Steps;
+            recipeDetails.PrepTime = recipe.PrepTime;
+            recipeDetails.CookTime = recipe.CookTime;
+            recipeDetails.Servings = recipe.Servings;
+            recipeDetails.IngredientNames = (from i in db.Ingredients
+                                            join ri in db.RecipeIngredients
+                                            on i.IngredientID equals ri.IngredientID
+                                            join r in db.Recipes
+                                            on ri.RecipeID equals r.RecipeID
+                                            where r.RecipeID == (int)id
+                                            select new Ingredient() { IngredientName = i.IngredientName, IngredientID = i.IngredientID }).ToList();
+            
             if (recipe == null)
             {
                 return HttpNotFound();
             }
-            return View(recipe);
+            return View(recipeDetails);
         }
 
         // GET: Recipe/Create
