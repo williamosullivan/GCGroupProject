@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GCGroupProject.DAL;
 using GCGroupProject.Models;
+using PagedList;
 
 namespace GCGroupProject.Controllers
 {
@@ -16,9 +17,25 @@ namespace GCGroupProject.Controllers
         private RecipeContext db = new RecipeContext();
 
         // GET: Recipe
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Recipes.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.MealTypeSortParm = String.IsNullOrEmpty(sortOrder) ? "meal_desc" : "";
+            var recipes = from r in db.Recipes
+                          select r;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    recipes = recipes.OrderByDescending(s => s.RecipeTitle);
+                    break;
+                case "meal_desc":
+                    recipes = recipes.OrderByDescending(s => s.MealType);
+                    break;
+                default:
+                    recipes = recipes.OrderBy(s => s.RecipeTitle);
+                    break;
+            }
+            return View(recipes.ToList());
         }
 
         // GET: Recipe/Details/5
