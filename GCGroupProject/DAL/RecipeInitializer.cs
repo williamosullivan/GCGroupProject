@@ -12,7 +12,7 @@ namespace GCGroupProject.DAL
         {
             var recipes = new List<Recipe>
             {
-                new Recipe{RecipeID = 1, RecipeTitle = "Something", PrepTime = 10, Steps = "Cook it", CookTime = 15, Servings = 5}
+                new Recipe{RecipeID = 1, RecipeTitle = "Something", PrepTime = 10, Steps = "Cook it", CookTime = 15, Servings = 5, MealType = "Breakfast"}
             };
             recipes.ForEach(s => context.Recipes.Add(s));
             context.SaveChanges();
@@ -29,13 +29,6 @@ namespace GCGroupProject.DAL
                 new RecipeIngredient{RecipeID = 1, IngredientID = 1, Amount = "Alot"}
             };
             recipeIngredients.ForEach(s => context.RecipeIngredients.Add(s));
-            context.SaveChanges();
-
-            var mealTypes = new List<MealType>
-            {
-                new MealType{MealTypeID = 1, MealTypeName = "Breakfast"}
-            };
-            mealTypes.ForEach(s => context.MealTypes.Add(s));
             context.SaveChanges();
         }
     }

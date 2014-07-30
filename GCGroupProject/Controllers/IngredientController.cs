@@ -11,107 +11,107 @@ using GCGroupProject.Models;
 
 namespace GCGroupProject.Controllers
 {
-    public class RecipeController : Controller
+    public class IngredientController : Controller
     {
         private RecipeContext db = new RecipeContext();
 
-        // GET: Recipe
+        // GET: Ingredient
         public ActionResult Index()
         {
-            return View(db.Recipes.ToList());
+            return View(db.Ingredients.ToList());
         }
 
-        // GET: Recipe/Details/5
+        // GET: Ingredient/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recipe recipe = db.Recipes.Find(id);
-            if (recipe == null)
+            Ingredient ingredient = db.Ingredients.Find(id);
+            if (ingredient == null)
             {
                 return HttpNotFound();
             }
-            return View(recipe);
+            return View(ingredient);
         }
 
-        // GET: Recipe/Create
+        // GET: Ingredient/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Recipe/Create
+        // POST: Ingredient/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecipeID,RecipeTitle,Steps,PrepTime,CookTime,Servings,MealType")] Recipe recipe)
+        public ActionResult Create([Bind(Include = "IngedientID,IngredientName")] Ingredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                db.Recipes.Add(recipe);
+                db.Ingredients.Add(ingredient);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(recipe);
+            return View(ingredient);
         }
 
-        // GET: Recipe/Edit/5
+        // GET: Ingredient/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recipe recipe = db.Recipes.Find(id);
-            if (recipe == null)
+            Ingredient ingredient = db.Ingredients.Find(id);
+            if (ingredient == null)
             {
                 return HttpNotFound();
             }
-            return View(recipe);
+            return View(ingredient);
         }
 
-        // POST: Recipe/Edit/5
+        // POST: Ingredient/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RecipeID,RecipeTitle,Steps,PrepTime,CookTime,Servings,MealType")] Recipe recipe)
+        public ActionResult Edit([Bind(Include = "IngedientID,IngredientName")] Ingredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(recipe).State = EntityState.Modified;
+                db.Entry(ingredient).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(recipe);
+            return View(ingredient);
         }
 
-        // GET: Recipe/Delete/5
+        // GET: Ingredient/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recipe recipe = db.Recipes.Find(id);
-            if (recipe == null)
+            Ingredient ingredient = db.Ingredients.Find(id);
+            if (ingredient == null)
             {
                 return HttpNotFound();
             }
-            return View(recipe);
+            return View(ingredient);
         }
 
-        // POST: Recipe/Delete/5
+        // POST: Ingredient/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Recipe recipe = db.Recipes.Find(id);
-            db.Recipes.Remove(recipe);
+            Ingredient ingredient = db.Ingredients.Find(id);
+            db.Ingredients.Remove(ingredient);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

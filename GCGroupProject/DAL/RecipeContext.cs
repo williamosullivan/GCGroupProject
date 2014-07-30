@@ -10,15 +10,14 @@ namespace GCGroupProject.DAL
 {
     public class RecipeContext : DbContext
     {
-        public RecipeContext()
-            : base("RecipeContext")
+        public RecipeContext() : base("RecipeContext")
         {
+
         }
 
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
-        public DbSet<MealType> MealTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
