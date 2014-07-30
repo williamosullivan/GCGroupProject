@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GCGroupProject
+namespace GCGroupProject.Models
 {
     using System;
     using System.Data.Entity;

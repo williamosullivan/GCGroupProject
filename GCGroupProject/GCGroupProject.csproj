@@ -165,29 +165,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Ingredient.cs">
+    <Compile Include="Models\Ingredient.cs">
       <DependentUpon>RecipesDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs">
+    <Compile Include="Models\Recipe.cs">
       <DependentUpon>RecipesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipeIngredient.cs">
+    <Compile Include="Models\RecipeIngredient.cs">
       <DependentUpon>RecipesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipesDataModel.Context.cs">
+    <Compile Include="Models\RecipesDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipesDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipesDataModel.cs">
+    <Compile Include="Models\RecipesDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipesDataModel.Designer.cs">
+    <Compile Include="Models\RecipesDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipesDataModel.edmx</DependentUpon>
@@ -203,19 +203,19 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="RecipesDataModel.edmx">
+    <EntityDeploy Include="Models\RecipesDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RecipesDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="RecipesDataModel.Context.tt">
+    <Content Include="Models\RecipesDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RecipesDataModel.edmx</DependentUpon>
       <LastGenOutput>RecipesDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="RecipesDataModel.edmx.diagram">
+    <Content Include="Models\RecipesDataModel.edmx.diagram">
       <DependentUpon>RecipesDataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="RecipesDataModel.tt">
+    <Content Include="Models\RecipesDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RecipesDataModel.edmx</DependentUpon>
       <LastGenOutput>RecipesDataModel.cs</LastGenOutput>

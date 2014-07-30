@@ -7,21 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GCGroupProject
+namespace GCGroupProject.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Ingredient
+    public partial class RecipeIngredient
     {
-        public Ingredient()
-        {
-            this.RecipeIngredients = new HashSet<RecipeIngredient>();
-        }
-    
         public int IngredientID { get; set; }
-        public string IngredientName { get; set; }
+        public int RecipeID { get; set; }
+        public string Amount { get; set; }
     
-        public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }
+        public virtual Ingredient Ingredient { get; set; }
+        public virtual Recipe Recipe { get; set; }
     }
 }
