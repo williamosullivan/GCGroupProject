@@ -81,6 +81,7 @@ namespace GCGroupProject.Controllers
                                              join r in db.Recipes
                                              on ri.RecipeID equals r.RecipeID
                                              where r.RecipeID == (int)id
+                                             orderby i.IngredientName
                                              select new IngredientAmount{IngredientID=i.IngredientID,IngredientName=i.IngredientName,Amount=ri.Amount};
             
             if (recipeDetails == null)
@@ -189,6 +190,7 @@ namespace GCGroupProject.Controllers
                                              join r in db.Recipes
                                              on ri.RecipeID equals r.RecipeID
                                              where r.RecipeID == (int)id
+                                             orderby i.IngredientName
                                              select new IngredientAmount{IngredientID=i.IngredientID,IngredientName=i.IngredientName,Amount=ri.Amount};
             return View(ingredientAmounts);
         }
