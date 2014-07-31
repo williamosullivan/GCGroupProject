@@ -24,3 +24,16 @@
     background-image: url(../Content/black.jpg);
     background-repeat: repeat-y;
 }
+
+.recipe {
+    background-image: url(../Content/recipe.jpg);
+    background-repeat: no-repeat;
+    height: 542px;
+    width: 802px;
+    color: black;
+    text-align: center;
+    background-color: rgba(0,0,0,0);
+    padding-right: 2em;
+    padding-top: 2em;
+    padding-left: 6em;
+}

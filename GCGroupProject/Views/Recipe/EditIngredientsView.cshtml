@@ -8,8 +8,7 @@
 Select Ingredient: @Html.DropDownList("IngredientList", (IEnumerable<SelectListItem>)ViewBag.SelectListIngredient)
 Select Amount: @Html.TextBox("Amount", "")
 @Html.ActionLink("Add", "EditIngredientsView", "IngredientList", "Amount")
-<table class="table table-responsive">
-
+<table class="table">
     <tr>
         <th><u>Name</u></th>
         <th><u>Amount</u></th>
