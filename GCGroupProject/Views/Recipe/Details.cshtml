@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
-<h2>Details</h2>
+<h2>Recipe Card</h2>
 
 <div class="recipe">
     <h4></h4>
@@ -37,6 +37,12 @@
 
         <dd>
             @Html.DisplayFor(model => model.Servings)
+        </dd>
+        <dt>
+            Ingredients:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IngredientNames)
         </dd>
         <dt><br /></dt>
         <dd><br /></dd>

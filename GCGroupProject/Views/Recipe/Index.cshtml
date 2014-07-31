@@ -25,9 +25,6 @@
             @Html.ActionLink("Recipe Title", "Index", new { sortOrder = ViewBag.NameSortParm }, new { style = "color:lawngreen" })
         </th>
         <th>
-            Steps
-        </th>
-        <th>
             Preparation Time
         </th>
         <th>
@@ -46,9 +43,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RecipeTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Steps)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PrepTime)
