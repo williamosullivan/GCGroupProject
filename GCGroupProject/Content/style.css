@@ -37,3 +37,8 @@
     padding-top: 2em;
     padding-left: 6em;
 }
+
+.color { color: lawngreen }
+.color:active { color: lawngreen !important; }
+.color:link { color: lawngreen }
+.color.visited { color: red }
