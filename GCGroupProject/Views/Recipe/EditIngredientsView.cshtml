@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 Select Ingredient: @Html.DropDownList("IngredientList", (IEnumerable<SelectListItem>)ViewBag.SelectListIngredient)
 Select Amount: @Html.TextBox("Amount", "")
-@Html.ActionLink("Add", "EditIngredientsView", "IngredientList", "Amount", new { style = "color:lawngreen" })
 <table class="table">
     <tr>
         <th><u>Name</u></th>
@@ -24,10 +23,9 @@ Select Amount: @Html.TextBox("Amount", "")
                 @Html.DisplayFor(x => i.Amount)
             </td>
         </tr>
+        @Html.ActionLink("Add", "EditIngredientsView", "IngredientList", new {id = i.IngredientID }, new { style = "color:lawngreen" })
     }
 </table>
-
-
 
 
 @*@using (Html.BeginForm())
