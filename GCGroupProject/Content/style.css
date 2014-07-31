@@ -1,6 +1,6 @@
 ﻿body {
     background-color: black;
-    color: lawngreen;
+    color: #E6E6CC;
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(../Content/orange.jpg);
     background-repeat: no-repeat;
@@ -8,19 +8,19 @@
 }
 
 .jumbotron {
-    color: lawngreen;
+    color: #E6E6CC;
     background-color: rgba(0, 0, 0, 0);
     text-align: center;
 }
 
 .navbar {
-    color: lawngreen !important;
+    color: #E6E6CC;
     background-color: rgba(0, 0, 0, 0.00);
     float: left;
     width: 10%;
     height: 100%;
     font-size: large;
     padding-top: 10%;
-    background-image: url(../Content/bricks.jpg);
+    background-image: url(../Content/black.jpg);
     background-repeat: repeat-y;
 }
