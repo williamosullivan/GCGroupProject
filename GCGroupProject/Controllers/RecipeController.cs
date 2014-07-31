@@ -170,6 +170,41 @@ namespace GCGroupProject.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET: EditIngredients
+        public ActionResult EditIngredientsView(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Recipe recipe = db.Recipes.Find(id);
+            if (recipe == null)
+            {
+                return HttpNotFound();
+            }
+            PopulateIngredientsDropdown();
+            var ingredientAmounts=from i in db.Ingredients
+                                             join ri in db.RecipeIngredients
+                                             on i.IngredientID equals ri.IngredientID
+                                             join r in db.Recipes
+                                             on ri.RecipeID equals r.RecipeID
+                                             where r.RecipeID == (int)id
+                                             select new IngredientAmount{IngredientID=i.IngredientID,IngredientName=i.IngredientName,Amount=ri.Amount};
+            return View(ingredientAmounts);
+        }
+
+        //prepare ingredient dropdown list
+        public void PopulateIngredientsDropdown()
+        {
+            var ingredientListing = new List<string>();
+            var ingredientQuery = (from i in db.Ingredients
+                                  orderby i.IngredientName
+                                  select i.IngredientName);
+            ingredientListing.AddRange(ingredientQuery);
+            ViewBag.SelectListIngredient = new SelectList(ingredientListing);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
