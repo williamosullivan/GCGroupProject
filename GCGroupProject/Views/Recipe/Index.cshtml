@@ -37,7 +37,7 @@
             Servings
         </th>
         <th>
-            @Html.ActionLink("Meal Type", "Index", new { sortOrder = ViewBag.MealTypeSortParm })
+            @Html.ActionLink("Meal Type", "Index", new { sortOrder = ViewBag.MealTypeSortParm }, new { style = "color:lawngreen" })
         </th>
         <th></th>
     </tr>
@@ -63,10 +63,10 @@
             @Html.DisplayFor(modelItem => item.MealType)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecipeID }) |
-            @Html.ActionLink("Edit Ingredients", "EditIngredientsView", new { id = item.RecipeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RecipeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecipeID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
+            @Html.ActionLink("Edit Ingredients", "EditIngredientsView", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID }, new { style = "color:lawngreen" })
         </td>
     </tr>
 }
