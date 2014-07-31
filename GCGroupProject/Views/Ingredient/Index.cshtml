@@ -21,7 +21,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Ingredient Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Ingredient Name", "Index", new { sortOrder = ViewBag.NameSortParm }, new { style = "color: lawngreen" })
         </th>
         <th></th>
     </tr>
@@ -32,9 +32,9 @@
             @Html.DisplayFor(modelItem => item.IngredientName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IngredientID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IngredientID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IngredientID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.IngredientID }, new { style = "color: lawngreen" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IngredientID }, new { style = "color: lawngreen" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID }, new { style = "color: lawngreen" })
         </td>
     </tr>
 }
