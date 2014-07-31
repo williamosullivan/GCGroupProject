@@ -15,6 +15,6 @@ namespace GCGroupProject.viewModels
         public int CookTime { get; set; }
         public int Servings { get; set; }
         public string MealType { get; set; }
-        public IEnumerable<Ingredient> IngredientNames { get; set; }
+        public IEnumerable<IngredientAmount> IngredientNames { get; set; }
     }
 }

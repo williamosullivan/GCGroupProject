@@ -50,17 +50,30 @@
         </dd>
 
     </dl>
-    Ingredients: <br />
-    <ul>
-        @foreach (var i in Model.IngredientNames) {
-        <li>@Html.DisplayFor(x =>i.IngredientName)</li>
+    <strong> Ingredients:</strong> <br />
+    <table>
+        <tr>
+            <th><u>Name</u></th>
+            <th><u>Amount</u></th>
+
+        </tr>
+        @foreach (var i in Model.IngredientNames)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => i.IngredientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => i.Amount)
+                </td>
+            </tr>
         }
-    </ul>
-    
-        @Html.DisplayNameFor(model => model.Steps):<br /><br />
-        
-        @Html.DisplayFor(model => model.Steps)
-    
+
+    </table>
+    <p><strong>Instructions:</strong><p>
+    <p>@Html.DisplayFor(model => model.Steps)</p>
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeID }) |

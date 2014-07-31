@@ -81,7 +81,7 @@ namespace GCGroupProject.Controllers
                                              join r in db.Recipes
                                              on ri.RecipeID equals r.RecipeID
                                              where r.RecipeID == (int)id
-                                             select i;
+                                             select new IngredientAmount{IngredientID=i.IngredientID,IngredientName=i.IngredientName,Amount=ri.Amount};
             
             if (recipeDetails == null)
             {
