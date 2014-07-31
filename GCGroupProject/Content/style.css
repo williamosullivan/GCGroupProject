@@ -1,6 +1,6 @@
 ﻿body {
-    background-color: orangered;
-    color: rgb(172, 227, 141);
+    background-color: black;
+    color: lawngreen;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-image: url(../Content/orange.jpg);
     background-repeat: no-repeat;
@@ -8,16 +8,25 @@
 }
 
 .jumbotron {
-    color: rgb(172, 227, 141);
+    color: lawngreen;
     background-color: rgba(0, 0, 0, 0);
     text-align: center;
 }
 
 .navbar {
-    color: rgb(172, 227, 141);
+    color: lawngreen !important;
     background-color: rgba(0, 0, 0, 0.00);
     float: left;
     width: 10%;
     height: 100%;
     font-size: large;
+    padding-top: 10%;
+}
+
+.header {
+    background-image: url(../Content/header.jpg);
+}
+
+#footer {
+    background-image: url(../Content/header.jpg);
 }
