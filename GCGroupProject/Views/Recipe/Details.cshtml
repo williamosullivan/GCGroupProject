@@ -38,37 +38,31 @@
         <dd>
             @Html.DisplayFor(model => model.Servings)
         </dd>
-        <dt>
-            Ingredients:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IngredientNames)
-        </dd>
-        <dt><br /></dt>
-        <dd><br /></dd>
-        <dt><br /></dt>
-        <dd><br /></dd>
     </dl>
-    <table class=" table-responsive">
-        <tr>
-            <th><u>Name</u></th>
-            <th><u>Amount</u></th>
-
-        </tr>
-        @foreach (var i in Model.IngredientNames)
-        {
+    <center>
+        <strong>Ingredients: </strong>
+        <br />
+        <table class=" table-responsive">
             <tr>
-                <td>
-                    @Html.DisplayFor(x => i.IngredientName)
-                </td>
-                <td>
-                    @Html.DisplayFor(x => i.Amount)
-                </td>
+                <th><u>Name</u></th>
+                <th><u>Amount</u></th>
+
             </tr>
-        }
+            @foreach (var i in Model.IngredientNames)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(x => i.IngredientName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => i.Amount)
+                    </td>
+                </tr>
+            }
         </table>
-        
-             <strong>Instructions:</strong>   
+    </center>
+    <br /><br />
+    <strong>Instructions:</strong>
     <p>
         @Html.DisplayFor(model => model.Steps)
     </p>
