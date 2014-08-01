@@ -39,6 +39,8 @@
 }
 
 .color { color: lawngreen }
-.color:active { color: lawngreen !important; }
+.color:active { color: lawngreen !important }
 .color:link { color: lawngreen }
 .color.visited { color: red }
+
+.indent { padding-left: 10em; }

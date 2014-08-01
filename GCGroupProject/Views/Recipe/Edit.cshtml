@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Recipe</h4>
         <hr />
@@ -64,16 +64,18 @@
                 @Html.ValidationMessageFor(model => model.MealType, "", new { @class = "text-danger" })
             </div>
         </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Select Ingredient: @Html.DropDownList("IngredientList", (IEnumerable<SelectListItem>)ViewBag.SelectListIngredient)
         <br /><br />
-        Select Amount: @Html.TextBox("Amount", "")
-        <br /><br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Select Amount: @Html.TextBox("Amount", "", new { @class = "indent" })
+            <br /><br>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
-        </div>
-    </div>
+</div>
 }
 
 <div>
