@@ -44,17 +44,17 @@
         <br />
         <table class=" table-responsive">
             <tr>
-                <th width="15%"><u>Name</u></th>
-                <th width ="15%"><u>Amount</u></th>
+                <th width="150"><u>Name</u></th>
+                <th width ="150"><u>Amount</u></th>
                  
             </tr>
             @foreach (var i in Model.IngredientNames)
             {
                 <tr>
-                    <td width="100">
+                    <td width="150">
                         @Html.DisplayFor(x => i.IngredientName)
                     </td>
-                    <td width="100">
+                    <td width="150">
                         @Html.DisplayFor(x => i.Amount)
                     </td>
                 </tr>
