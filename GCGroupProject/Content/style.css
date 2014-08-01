@@ -11,6 +11,8 @@
     color: #E6E6CC;
     background-color: rgba(0, 0, 0, 0);
     text-align: center;
+    align-content: center;
+    align-items: center;
 }
 
 .navbar {
@@ -38,9 +40,22 @@
     padding-left: 6em;
 }
 
-.color { color: lawngreen }
-.color:active { color: lawngreen !important }
-.color:link { color: lawngreen }
-.color.visited { color: red }
+.color {
+    color: lawngreen;
+}
 
-.indent { padding-left: 10em; }
+    .color:active {
+        color: lawngreen !important;
+    }
+
+    .color:link {
+        color: lawngreen;
+    }
+
+    .color.visited {
+        color: red;
+    }
+
+.indent {
+    padding-left: 10em;
+}

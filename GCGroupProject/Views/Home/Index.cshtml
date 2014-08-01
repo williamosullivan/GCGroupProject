@@ -1,10 +1,37 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<script type="text/javascript" src="http://www.linkbuildingservices4sites.com/resources/slide-show.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 <div class="jumbotron">
     <h1>Recipe Application</h1>
     <p class="lead">This Recipe Application website allows you to track recipes including a list of ingredients, steps, prep time, cooking time, and the number of people the recipe serves.</p>
     <p class="lead">The user can create new recipes, edit an existing recipe, delete an existing recipe, and display all of the recipes. </p>
+    <center>
+        <div id="imageslideshow1">
+            <script type="text/javascript">
+                var mygallery = new fadeSlideShow({
+                    wrapperid: "imageslideshow1",
+                    dimensions: [400, 400],
+                    imagearray: [
+                    ["../Content/1.jpg"],
+                    ["../Content/2.jpg"],
+                    ["../Content/3.jpg"],
+                    ["../Content/4.jpg"],
+                    ["../Content/5.jpg"],
+                    ["../Content/6.jpg"],
+                    ["../Content/7.jpg"],
+                    ["../Content/8.jpg"],
+                    ["../Content/9.jpg"],
+                    ["../Content/10.jpg"]
+                    ],
+                    displaymode: { type: 'auto', pause: 1000, cycles: 0, wraparound: false },
+                    persist: false,
+                    fadeduration: 2000,
+                    descreveal: "ondemand",
+                    togglerid: ""
+                })
+            </script>
+        </div>
+    </center>
 </div>
-
