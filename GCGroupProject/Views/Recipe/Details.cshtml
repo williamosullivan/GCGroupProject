@@ -10,13 +10,13 @@
     <h4></h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>           
+        <dt>
         </dt>
         <dd>
             @Html.DisplayFor(model => model.RecipeTitle)
         </dd>
         <dt>
-            Prep Time:
+            Preparation Time:
         </dt>
 
         <dd>
@@ -24,7 +24,7 @@
         </dd>
 
         <dt>
-            Cook Time:
+            Cooking Time:
         </dt>
 
         <dd>
@@ -48,13 +48,33 @@
         <dd><br /></dd>
         <dt><br /></dt>
         <dd><br /></dd>
-        <dt>
-            Instructions:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Steps)
-        </dd>
     </dl>
+    <table class=" table-responsive">
+        <tr>
+            <th><u>Name</u></th>
+            <th><u>Amount</u></th>
+
+        </tr>
+        @foreach (var i in Model.IngredientNames)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => i.IngredientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => i.Amount)
+                </td>
+            </tr>
+        }
+        </table>
+        <dl>
+            <dt>
+                Instructions:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Steps)
+            </dd>
+        </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeID }, new { style = "color:lawngreen" }) |
