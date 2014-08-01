@@ -45,8 +45,8 @@
         <table class=" table-responsive">
             <tr>
                 <th width="150"><u>Name</u></th>
-                <th width ="150"><u>Amount</u></th>
-                 
+                <th width="150"><u>Amount</u></th>
+
             </tr>
             @foreach (var i in Model.IngredientNames)
             {
@@ -62,11 +62,15 @@
         </table>
     </center>
     <br /><br />
-    <strong>Instructions:</strong>
-    <p>
-        @Html.DisplayFor(model => model.Steps)
-    </p>
-</div>
+    <div align="left" style="padding-left:100px; width:70%;">
+            <strong>Instructions:</strong>
+
+            <p>
+                @Html.DisplayFor(model => model.Steps)
+            </p>
+        </div>
+    </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeID }, new { style = "color:lawngreen" }) |
     @Html.ActionLink("Back to List", "Index", null, new { @class = "color" })
