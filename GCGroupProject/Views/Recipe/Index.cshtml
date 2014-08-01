@@ -58,7 +58,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
-            @Html.ActionLink("Edit Ingredients", "EditIngredientsView", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
+            @Html.ActionLink("Edit Ingredients", "RecipeIngrdientEdit", "Edit", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
             @Html.ActionLink("Details", "Details", new { id = item.RecipeID }, new { style = "color:lawngreen" }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID }, new { style = "color:lawngreen" })
         </td>

@@ -122,6 +122,7 @@ namespace GCGroupProject.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Recipe recipe = db.Recipes.Find(id);
+            PopulateIngredientsDropdown();
             if (recipe == null)
             {
                 return HttpNotFound();
@@ -214,6 +215,16 @@ namespace GCGroupProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void PopulateIngredientDropdown()
+        {
+            var ingredientListing = new List<string>();
+            var ingredientQuery = from i in db.Ingredients
+                                  orderby i.IngredientName
+                                  select i.IngredientName;
+            ingredientListing.AddRange(ingredientQuery);
+            ViewBag.SelectListIngredient = new SelectList(ingredientListing);
         }
     }
 }
