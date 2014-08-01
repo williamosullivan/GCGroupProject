@@ -33,7 +33,10 @@ namespace GCGroupProject.Migrations
                     CookTime = 15, Servings = 1, MealType = "Breakfast"}, 
                 new Recipe{RecipeID = 5, RecipeTitle = "Spaghetti", PrepTime = 3,
                     Steps = "1. Bring a pot of water to a boil. 2. Take one pound of spaghetti and put it in the pot of boiling water. 3. Let boil for twelve minutes. 4. Take spaghetti out of the boiling water and let cool for five minutes. 5. Add spaghetti sauce.", 
-                    CookTime = 12, Servings = 3, MealType = "Dinner"}
+                    CookTime = 12, Servings = 3, MealType = "Dinner"},
+                new Recipe{RecipeID = 6, RecipeTitle = "Peanut Butter and Jelly Sandwich", PrepTime = 2,
+                    Steps = "1. Get two slices of bread.   2. Put jelly on one slice of bread.   3. Put peanut butter on the other slice of bread.   4. Put the two slices of bread together.", 
+                    CookTime = 5, Servings = 1, MealType = "Lunch"}
             };
 
             recipes.ForEach(s => context.Recipes.AddOrUpdate(s));
@@ -54,7 +57,10 @@ namespace GCGroupProject.Migrations
                 new Ingredient{IngredientID = 11, IngredientName = "Spaghetti"},
                 new Ingredient{IngredientID = 12, IngredientName = "Sugar"},
                 new Ingredient{IngredientID = 13, IngredientName = "Tomato Sauce"},
-                new Ingredient{IngredientID = 14, IngredientName = "White Potatoes"}
+                new Ingredient{IngredientID = 14, IngredientName = "White Potatoes"},
+                new Ingredient{IngredientID = 15, IngredientName = "Bread"},
+                new Ingredient{IngredientID = 16, IngredientName = "Peanut Butter"},
+                new Ingredient{IngredientID = 17, IngredientName = "Jelly"}
             };
 
             ingredients.ForEach(s => context.Ingredients.AddOrUpdate(s));
@@ -75,7 +81,10 @@ namespace GCGroupProject.Migrations
                 new RecipeIngredient{RecipeID = 4, IngredientID = 8, Amount = "1 Cup"},
                 new RecipeIngredient{RecipeID = 4, IngredientID = 9, Amount = "1 - 8 oz Box"},
                 new RecipeIngredient{RecipeID = 5, IngredientID = 11, Amount = "1 Pound"},
-                new RecipeIngredient{RecipeID = 5, IngredientID = 13, Amount = "1 Cup"}
+                new RecipeIngredient{RecipeID = 5, IngredientID = 13, Amount = "1 Cup"},
+                new RecipeIngredient{RecipeID = 6, IngredientID = 15, Amount = "2 Slices"},
+                new RecipeIngredient{RecipeID = 6, IngredientID = 16, Amount = "2 Tablespoons"},
+                new RecipeIngredient{RecipeID = 6, IngredientID = 17, Amount = "2 Tablespoons"}
             };
 
             recipeIngredients.ForEach(s => context.RecipeIngredients.AddOrUpdate(s));
